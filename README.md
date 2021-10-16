@@ -10,9 +10,9 @@ The name of the project was inspired from Charles Wheatstone with his invention 
 
 ## The classes
 
-## Note
+## Contributing
 
-The python code is in english but the report is in French so do not hesitate to contact me if you want more details in English.
+The python code is in english so do not hesitate to contact me if you want more details in French.
 
 ### Contributing
 
