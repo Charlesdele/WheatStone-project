@@ -12,11 +12,12 @@ The name of the project was inspired from Charles Wheatstone with his invention 
 When running the code for the first time, choose the image you want to work on.
 A few ones are already in an image folder like the parot (coco), the eagle (lac) and the girl (lea).
 
-<p align="left"> 
-  <img scr=https://user-images.githubusercontent.com/63778269/137595939-03580e8a-7ad6-41b2-a738-326fdb3bf070.PNG width=300>
-  <img scr=https://user-images.githubusercontent.com/63778269/137595955-47315221-d8cb-419a-8a37-378073c0ddd7.PNG width=300>
-  <img scr=https://user-images.githubusercontent.com/63778269/137595948-705c3a1a-d986-4ada-b9da-c03793cb5eb1.PNG width=300>
-</p>
+<img scr=https://user-images.githubusercontent.com/63778269/137595939-03580e8a-7ad6-41b2-a738-326fdb3bf070.PNG width=300>
+
+<img scr=https://user-images.githubusercontent.com/63778269/137595955-47315221-d8cb-419a-8a37-378073c0ddd7.PNG width=300>
+
+<img scr=https://user-images.githubusercontent.com/63778269/137595948-705c3a1a-d986-4ada-b9da-c03793cb5eb1.PNG width=300>
+
 
 If you want to use your images put them in the folder **images_de_base** at the following path : _ProjectWheatstone/bin/Debug/images_de_base_
 
