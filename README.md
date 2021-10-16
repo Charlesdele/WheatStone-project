@@ -4,9 +4,23 @@
 
 <img src=https://user-images.githubusercontent.com/63778269/137594887-d327dc1f-a49d-41a2-a77f-a43955160e3e.PNG width=400/>
 
-The name of the project was inspired from Charles Wheatstone with his invention of the stereogram, which i implemented in the form of autostereogram generation in the project
+This project aims to recreate the pixel and bitmap librairies of C# from scratch and implement them in multiple ways.
+The name of the project was inspired from Charles Wheatstone with his invention of the stereogram, which we implemented in the form of autostereogram generation in the project.
 
 ## Installation
+
+When running the code for the first time, choose the image you want to work on.
+A few ones are already in an image folder like the parot (coco), the eagle (lac) and the girl (lea).
+
+<p align="left"> 
+  <img scr=https://user-images.githubusercontent.com/63778269/137595939-03580e8a-7ad6-41b2-a738-326fdb3bf070.PNG width=300>
+  <img scr=https://user-images.githubusercontent.com/63778269/137595955-47315221-d8cb-419a-8a37-378073c0ddd7.PNG width=300>
+  <img scr=https://user-images.githubusercontent.com/63778269/137595948-705c3a1a-d986-4ada-b9da-c03793cb5eb1.PNG width=300>
+</p>
+
+If you want to use your images put them in the folder **images_de_base** at the following path : _ProjectWheatstone/bin/Debug/images_de_base_
+
+Be careful you have to use bitmap images. You'll find the images you will modify in the folder **images** (in the Debug)
 
 ## The classes
 
