@@ -1,0 +1,22 @@
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.csprojAssemblyReference.cache
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe.config
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.pdb
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.exe
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.pdb
+C:\Users\Francois\Desktop\Projet Informatique- Charles Delemazure & Clovis Carlier\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.xml
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe.config
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.xml
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.pdb
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.csprojAssemblyReference.cache
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.exe
+C:\Users\Francois\Desktop\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.pdb
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe.config
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.xml
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.exe
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\bin\Debug\ProjectWheatstone.pdb
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.csprojAssemblyReference.cache
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.csproj.CoreCompileInputs.cache
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.exe
+C:\Users\charl\OneDrive\Desktop\Documents\Anciens fichiers\ESILV\S4\Prog C#\DELEMAZURE_CARLIER\DELEMAZURE_CARLIER\ProjectWheatstone\ProjectWheatstone\obj\Debug\ProjectWheatstone.pdb

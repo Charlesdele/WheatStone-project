@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectWheatstone</name>
+    </assembly>
+    <members>
+        <member name="T:ProjectWheatstone.Complex">
+            <summary>
+            Class to represent a complex number and handle complex computations
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.#ctor">
+            <summary>
+            Empty constructor
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.#ctor(System.Double,System.Double)">
+            <summary>
+            Simple constructor
+            </summary>
+            <param name="re">real part of the number</param>
+            <param name="im">imaginary part of the number</param>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.#ctor(ProjectWheatstone.Complex)">
+            <summary>
+            copy constructor
+            </summary>
+            <param name="z">complex number to copy</param>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.ComplexMult(ProjectWheatstone.Complex,ProjectWheatstone.Complex)">
+            <summary>
+            Multiply 2 complex number
+            </summary>
+            <param name="z1">the first complex number</param>
+            <param name="z2">the second complex number</param>
+            <returns>the result of the multiplication</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.ComplexAdd(ProjectWheatstone.Complex,ProjectWheatstone.Complex)">
+            <summary>
+            Add 2 complex number
+            </summary>
+            <param name="z1">the first complex number</param>
+            <param name="z2">the second complex number</param>
+            <returns>the result of the addition</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.Module">
+            <summary>
+            Computes the module of a complex number, its distance from (0,0) in the complex plane
+            </summary>
+            <returns>the module of the complex number</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Complex.toString">
+            <summary>
+            Tostring method for a complex number
+            </summary>
+            <returns>returns the complex number like: (a+bi)</returns>
+        </member>
+        <member name="T:ProjectWheatstone.QRCode">
+            <summary>
+            Class used to encode and decode QRCode
+            This class inherits from the Image Class
+            Data is needed to encode a QRCode
+            An image is needed to decode a QRCode
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.#ctor(ProjectWheatstone.Image)">
+            <summary>
+            Decoding constructor, not functional
+            </summary>
+            <param name="im">QRCode image to be decoded</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.#ctor(System.String)">
+            <summary>
+            Encoding constructor
+            </summary>
+            <param name="data">the sentence or word of data to be encoded into a QRCode</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetVersion">
+            <summary>
+            Computes version with the width and height parameter of the given image (
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetSmallestVersion">
+            <summary>
+            Determines the smallest version into which the string of data provide by the user can fit
+            </summary>
+            <returns>Returns the version as an int between 1 and 40</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetData">
+            <summary>
+            Construct the binary data from the Mode indicator, the character count indicator, the encoded data in alphanumeric and the padding
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetTotalDataCodeWord">
+            <summary>
+            Return the total data codewords after considering the current version
+            </summary>
+            <returns>returns the number of datacodewords available for this version as an int</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddPadding(System.String)">
+            <summary>
+            Add the padding to a binary string, adds terminator, %8 bits, and pad bytes until total data codewords
+            </summary>
+            <param name="binary">binary string to add padding to</param>
+            <returns>binary data with its padding appended to it</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.EncodedData">
+            <summary>
+            Returns the message's data encoded as strings of binary values, considering their alphanumeric values
+            </summary>
+            <returns>a long binary string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetAlphanumericValue(System.Char)">
+            <summary>
+            Return the alphanumeric value of a character
+            </summary>
+            <param name="input">the character to be encoded into its alphanumeric value</param>
+            <returns>the alphanumeric value in int of the character</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetCharCountInd">
+            <summary>
+            Returns in a binary string the Character Count Indicator, in length 9 11 or 13 depending on the version
+            </summary>
+            <returns>the character count indicator in string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetCorrection(System.String)">
+            <summary>
+            Create the reed solomon correction of a string of binary data, in other words, 
+            returns Error correction codewords in string from the string of binary of the data codewords
+            </summary>
+            <param name="binary">the binary data</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetECCodewords">
+            <summary>
+            Calculates and returns the the total number of error correction codewords, knowing the version
+            </summary>
+            <returns>the number of ECC</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetMatrice">
+            <summary>
+            Creates the QRCode image's pixel matrix, adds all the pattern (finder, alignment, timing...) and the data
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.Whiten(System.Int32,System.Int32)">
+            <summary>
+            Creates a white pixel at the desired i,j, of the QRCode matrix(!) 
+            (Not to be used by temp pixel matrix... learned this the hard way)
+            </summary>
+            <param name="i">the line coordinate</param>
+            <param name="j">the column coordinate</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.Blacken(System.Int32,System.Int32)">
+            <summary>
+            Creates a black pixel at the desired i,j, of the QRCode matrix
+            </summary>
+            <param name="i">the line coordinate</param>
+            <param name="j">the column coordinate</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddQuietZone">
+            <summary>
+            Add the quiet zone to the matrix: a 4 wide white quiet around the QRCode
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddFinderPattern">
+            <summary>
+            Add the finder patterns to the matrix, calls the CreateFinderPattern function to the center of the 3 corners
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.CreateFinderPattern(System.Int32,System.Int32)">
+            <summary>
+            Creates a finder around with its center at the x,y coordinate
+            </summary>
+            <param name="x">line coordinate of center of the pattern</param>
+            <param name="y">column coordinate of center of the pattern</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddAlignmentPattern">
+            <summary>
+            Add all the alignment patterns to the pixel matrix
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.CreateAlignmentPattern(System.Int32,System.Int32)">
+            <summary>
+            Creates an alignment pattern at the desired coordinates
+            </summary>
+            <param name="x">the line coordinate of the center of the alignment pattern</param>
+            <param name="y">the column coordinate of the center of the alignment pattern</param>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddTimingPattern">
+            <summary>
+            Adds the timing pattern's line and column 
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddDarkModule">
+            <summary>
+            Adds the dark module pixel
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddUnusableLines">
+            <summary>
+            Color in blue the unusable lines around the finder pattern on the pixel matrix, so the data doesn't
+            write itself on the version/mask info reserved space
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddData">
+            <summary>
+            Add the data to the pixel matrix
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetBestMask">
+            <summary>
+            Function that returns the best mask based on penalty calculations
+            </summary>
+            <returns>int of best mask, between 0 and 7</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetPenalty1(ProjectWheatstone.Pixel[0:,0:])">
+            <summary>
+            Computes the 1rst penalty
+            </summary>
+            <param name="mat">the matrix to calculate the penalty from</param>
+            <returns>the value of the 1th penalty</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetPenalty2(ProjectWheatstone.Pixel[0:,0:])">
+            <summary>
+            Computes the 2nd penalty
+            </summary>
+            <param name="mat">the matrix to calculate the penalty from</param>
+            <returns>the value of the 2nd penalty</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetPenalty3(ProjectWheatstone.Pixel[0:,0:])">
+            <summary>
+            Computes the 3rd penalty
+            </summary>
+            <param name="mat">the matrix to calculate the penalty from</param>
+            <returns>the value of the 3rd penalty</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetPenalty4(ProjectWheatstone.Pixel[0:,0:])">
+            <summary>
+            Computes the 4th penalty
+            </summary>
+            <param name="mat">the matrix to calculate the penalty from</param>
+            <returns>the value of the 4th penalty</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.MaskPattern(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the mask pattern magic number applied to the pixel at x,y, we only need to switch pixels with magicnumber=0
+            </summary>
+            <param name="pattern">the pattern int</param>
+            <param name="x">x coordinate of the pixel</param>
+            <param name="y">x coordinate of the pixel</param>
+            <returns>The mask pattern magic number</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddMask(ProjectWheatstone.Pixel[0:,0:],System.Int32)">
+            <summary>
+            Add a mask to a pixel matrix
+            </summary>
+            <param name="matrice">the pixel matrix without the mask</param>
+            <param name="mask">the int of the mask to be added</param>
+            <returns>the pixel matrix with the mask</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.coordinatevalid(System.Int32,System.Int32,System.Collections.Generic.List{System.Int32[]})">
+            <summary>
+            Boolean functions that checks if a coordinate is valid for masking, to avoid masking any patterns
+            </summary>
+            <param name="x">the x coordinate of the pixel</param>
+            <param name="y">the x coordinate of the pixel</param>
+            <param name="alignpattern">a list of coordinates in format int tab[x,y] which belong to alignment patterns</param>
+            <returns>returns if the coordinate is valid or not (false if it hits any pattern)</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetAlignmentPatternCoo">
+            <summary>
+            Construct and returns a list of coordinates in format: int tab[x,y] which belong to alignment patterns
+            </summary>
+            <returns>a list of coordinates</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetFormatInfo(System.Int32)">
+            <summary>
+            Returns the format info (in the case version if strictly lower than 7)
+            </summary>
+            <param name="MaskPattern">the mask pattern (0 to 7)</param>
+            <returns>the binary to be added to the info bits</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.GetVersionInfo(System.Int32)">
+            <summary>
+            Returns the format info (in the case version if strictly higher than 6)
+            </summary>
+            <param name="version">the version of the QRCode</param>
+            <returns>the binary to be added to the info bits</returns>
+        </member>
+        <member name="M:ProjectWheatstone.QRCode.AddInfo(ProjectWheatstone.Pixel[0:,0:],System.Int32)">
+            <summary>
+            Add the info bits around or next to the finder pattern in a pixel matrix (depending on the version)
+            </summary>
+            <param name="mat">the pixel matrix which needs info to be added</param>
+            <param name="mask">the mask that will be applied after</param>
+        </member>
+        <member name="T:ProjectWheatstone.Convolution">
+            <summary>
+            Convolution class, daughter of the image class, used to add convolution filters to an image
+            </summary>
+        </member>
+        <member name="F:ProjectWheatstone.Convolution.filter">
+            <summary>
+            Characteristics of a convolution filter
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Convolution.#ctor(ProjectWheatstone.Image,System.String)">
+            <summary>
+            simple constructor
+            </summary>
+            <param name="im">Image to apply the convolution filter to</param>
+            <param name="filter">the filter that need to be applied, as a string</param>
+        </member>
+        <member name="M:ProjectWheatstone.Convolution.ConstructMat(ProjectWheatstone.Image)">
+            <summary>
+            Construct the image pixel matrix with the addition of the convolution filter
+            </summary>
+            <param name="im">the image on which we apply the filter</param>
+        </member>
+        <member name="M:ProjectWheatstone.Convolution.GetFilter(System.String)">
+            <summary>
+            databases of all filters
+            </summary>
+            <param name="filtername">name of the filter</param>
+            <returns>returns the filter string into its corresponding matrix</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Convolution.GetFactor(System.String)">
+            <summary>
+            Returns the factor (if any) required by the matrix
+            </summary>
+            <param name="filtername">string of the current filer</param>
+            <returns>the factor as an int</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Convolution.GetBias(System.String)">
+            <summary>
+            Return the bias based on the filter, not used for the filters we have in our database in the moment
+            </summary>
+            <param name="filtername">string of the current filer</param>
+            <returns>the bias number as an int</returns>
+        </member>
+        <member name="T:ProjectWheatstone.Histogram">
+            <summary>
+            Daughter class of image reserved to the creation of histograms
+            </summary>
+        </member>
+        <member name="F:ProjectWheatstone.Histogram.RedList">
+            <summary>
+            256 lengths lists that will hold the value corresponding to the number of pixel that share the same color value as their index
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Histogram.#ctor(ProjectWheatstone.Image)">
+            <summary>
+            Main constructor of the images, collects all the parameters
+            </summary>
+            <param name="im"></param>
+        </member>
+        <member name="M:ProjectWheatstone.Histogram.ConstructTabs(ProjectWheatstone.Image)">
+            <summary>
+            Review the whole image pixel matrix and construct each tabs by incrementing the tab's value when its index correspond to the value of a pixel 
+            </summary>
+            <param name="im">the image we're using to create the histogram</param>
+        </member>
+        <member name="M:ProjectWheatstone.Histogram.ConstructMat">
+            <summary>
+            construct the pixel matrix of the histogram with the tabs
+            </summary>
+        </member>
+        <member name="T:ProjectWheatstone.Image">
+            <summary>
+            Image class, replace the bitmap library, with constructor and basic functions, more elaborate functions are done in daughter classes
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.#ctor">
+            <summary>
+            empty constructor
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.#ctor(System.String)">
+            <summary>
+            Basic constructor of the image class, construct an image with a path
+            </summary>
+            <param name="filename">the filename as a string (with extension)</param>
+        </member>
+        <member name="M:ProjectWheatstone.Image.#ctor(ProjectWheatstone.Image)">
+            <summary>
+            copy constructor
+            </summary>
+            <param name="im">the original image</param>
+        </member>
+        <member name="M:ProjectWheatstone.Image.getMatrice(System.Byte[])">
+            <summary>
+            Decode a byte array into a Pixel matrix
+            </summary>
+            <param name="bytes">the byte array containing the data</param>
+            <returns>the pixel matrix that is created from the data</returns>
+        </member>
+        <member name="P:ProjectWheatstone.Image.Taille">
+            <summary>
+            This is the get/set of the Image's class
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.SaveFile(System.String,System.Boolean)">
+            <summary>
+            Saves to /bin/Debug/images the instance of the image
+            </summary>
+            <param name="filename">the file name for the image</param>
+            <param name="showim">a boolean that decide if the process start the image to show it after saving</param>
+        </member>
+        <member name="M:ProjectWheatstone.Image.toString">
+            <summary>
+            Return a string that describes the image
+            </summary>
+            <returns>the image as a string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Image.toStringFull">
+            <summary>
+            Tostring full that show the characteristics of the image and the full pixel matrix
+            </summary>
+            <returns>the image and matrix as a string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Image.MatricetoString">
+            <summary>
+            ToString of the full pixel matrix
+            </summary>
+            <returns>the matrix as a string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Image.GreyShades">
+            <summary>
+            Apply a grey effect to the image
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.BW">
+            <summary>
+            Apply a black and white effet on the image
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.InvertedColors">
+            <summary>
+            Invert the color of an image
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.Channels">
+            <summary>
+            Apply a certain type of colour effect depending on the colour we remove
+            Useful for steganography
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.SwapPixel(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Swap Pixels in a matrix
+            </summary>
+            <param name="x1"> first pixel line coordinate to swap with the second pixel line coordinate</param>
+            <param name="y1"> first pixel column coordinate to swap with the second pixel column coordinate</param>
+            <param name="x2"> second pixel line coordinate to swap with the first pixel line coordinate</param>
+            <param name="y2"> second pixel column coordinate to swap with the first pixel column coordinate</param>
+        </member>
+        <member name="M:ProjectWheatstone.Image.HorizontalFlip">
+            <summary>
+            Miror effet horizontal sens
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.VerticalFlip">
+            <summary>
+            Miror effect vertical sens
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.Crop(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Take a part of an image
+            </summary>
+            <param name="newheight"> new height of the image </param>
+            <param name="newwidth"> new width of the image </param>
+        </member>
+        <!-- Commentaire XML incorrect pour le membre "M:ProjectWheatstone.Image.Resize(System.Double)" -->
+        <member name="M:ProjectWheatstone.Image.MandelBrot">
+            <summary>
+            Create the MandelBrot fractal
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Image.Julia(System.Double,System.Double)">
+            <summary>
+            Create the Julia fractal
+            Depending on the complex you choose
+            </summary>
+            <param name="Re"> real part of the complex number </param>
+            <param name="Im"> imaginary part of the complex number </param>
+        </member>
+        <member name="T:ProjectWheatstone.Pixel">
+            <summary>
+            Pixel class, used to represent
+            </summary>
+        </member>
+        <member name="F:ProjectWheatstone.Pixel.r">
+            <summary>
+            Int between 0 and 255, representing 3 8 bits integers for 1 pixel, red green and blue
+            byte would have obviously been less memory consuming, but we realized that after writing most of the image Class, so we decided since this is clearly a small project the memory can handle int...
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.#ctor">
+            <summary>
+            empty constructor
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            basic constructor
+            </summary>
+            <param name="b"></param>
+            <param name="g"></param>
+            <param name="r"></param>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.#ctor(System.Int32[])">
+            <summary>
+            Takes a pixel tab [b,g,r] and construct a pixel from its values
+            </summary>
+            <param name="pixeltab"></param>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.#ctor(ProjectWheatstone.Pixel)">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="pixel"></param>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.toString">
+            <summary>
+            To string function, returns pixel as 
+            </summary>
+            <returns>returns a string like: (blue value,green value,red value)</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.toByteArray">
+            <summary>
+            Converts a pixel to a byte array
+            </summary>
+            <returns>returns an array of bytes like:[blue value,green value,red value]</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.IsEqual(ProjectWheatstone.Pixel,ProjectWheatstone.Pixel)">
+            <summary>
+            Check if 2 pixels are equal by comparing their r g and b values
+            </summary>
+            <param name="a">1rst pixel</param>
+            <param name="b">2nd pixel</param>
+            <returns>a bool, true if the pixel are indeed equal, false otherwise</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Pixel.Copy">
+            <summary>
+            Copy a pixel
+            </summary>
+            <returns> Returns a new pixel with new memory address but same value as the self pixel</returns>
+        </member>
+        <!-- Commentaire XML incorrect pour le membre "T:ProjectWheatstone.Program" -->
+        <member name="M:ProjectWheatstone.Program.ImageChoice(System.Boolean)">
+            <summary>
+            Propose to the user a list of images actually in the debug folder
+            </summary>
+            <param name="wipe"> if the user want to wipe the list of images</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.Program.FolderWipe">
+            <summary>
+            Propose to the user to reset the list of images proposed at the start of the program (in case it's messy)
+            </summary>
+        </member>
+        <member name="T:ProjectWheatstone.Steganography">
+            <summary>
+            Class used to encode or decode Least Significant Bit steganography
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Steganography.#ctor(ProjectWheatstone.Image)">
+            <summary>
+            basic constructor, this takes the original image, to decode it, or encode another image inside it
+            </summary>
+            <param name="originalim"></param>
+        </member>
+        <member name="M:ProjectWheatstone.Steganography.Encode(ProjectWheatstone.Image,System.Int32)">
+            <summary>
+            Encode an image inside our image
+            </summary>
+            <param name="hiddenim">the image to be hidden</param>
+            <param name="hiddenbits">the numbers of significant bit to be used</param>
+        </member>
+        <member name="M:ProjectWheatstone.Steganography.Decode">
+            <summary>
+            A bruteforce way to decode an LSB hidden image, it tries for all bits possible to recover the hidden image from the original image
+            </summary>
+        </member>
+        <member name="T:ProjectWheatstone.ReedSolomonEncoder">
+            <summary>
+            Implements Reed-Solomon encoding, as the name implies.
+            </summary>
+            <author>Sean Owen</author>
+            <author>William Rucklidge</author>
+        </member>
+        <member name="T:ProjectWheatstone.ReedSolomonDecoder">
+            <summary> <p>Implements Reed-Solomon decoding, as the name implies.</p>
+            
+            <p>The algorithm will not be explained here, but the following references were helpful
+            in creating this implementation:</p>
+            
+            <ul>
+            <li>Bruce Maggs.
+            <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/pscico-guyb/realworld/www/rs_decode.ps">
+            "Decoding Reed-Solomon Codes"</a> (see discussion of Forney's Formula)</li>
+            <li>J.I. Hall. <a href="www.mth.msu.edu/~jhall/classes/codenotes/GRS.pdf">
+            "Chapter 5. Generalized Reed-Solomon Codes"</a>
+            (see discussion of Euclidean algorithm)</li>
+            </ul>
+            
+            <p>Much credit is due to William Rucklidge since portions of this code are an indirect
+            port of his C++ Reed-Solomon implementation.</p>
+            
+            </summary>
+            <author>Sean Owen</author>
+            <author>William Rucklidge</author>
+            <author>sanfordsquires</author>
+        </member>
+        <member name="M:ProjectWheatstone.ReedSolomonDecoder.Decode(System.Int32[],System.Int32)">
+            <summary>
+              <p>Decodes given set of received codewords, which include both data and error-correction
+            codewords. Really, this means it uses Reed-Solomon to detect and correct errors, in-place,
+            in the input.</p>
+            </summary>
+            <param name="received">data and error-correction codewords</param>
+            <param name="twoS">number of error-correction codewords available</param>
+            <returns>false: decoding fails</returns>
+        </member>
+        <member name="M:ProjectWheatstone.ReedSolomonAlgorithm.Encode(System.Byte[],System.Int32,ProjectWheatstone.ErrorCorrectionCodeType)">
+            <summary>
+            Produces error correction codewords for a message using the Reed-Solomon algorithm.
+            </summary>
+            <param name="message">The message to compute the error correction codewords.</param>
+            <param name="eccCount">The number of error correction codewords desired.</param>
+            <param name="eccType">The type of Galois field to use to encode error correction codewords.</param>
+            <returns>Returns the computed error correction codewords.</returns>
+        </member>
+        <member name="M:ProjectWheatstone.ReedSolomonAlgorithm.Encode(System.Byte[],System.Int32)">
+            <summary>
+            Produces error correction codewords for a message using the Reed-Solomon algorithm.
+            </summary>
+            <param name="message">The message to compute the error correction codewords.</param>
+            <param name="eccCount">The number of error correction codewords desired.</param>
+            <returns>Returns the computed error correction codewords.</returns>
+        </member>
+        <member name="M:ProjectWheatstone.ReedSolomonAlgorithm.Decode(System.Byte[],System.Byte[],ProjectWheatstone.ErrorCorrectionCodeType)">
+            <summary>
+            Repairs a possibly broken message using the Reed-Solomon algorithm.
+            </summary>
+            <param name="message">The possibly broken message to repair.</param>
+            <param name="ecc">The available error correction codewords.</param>
+            <param name="eccType">The type of Galois field to use to decode message.</param>
+            <returns>Returns the repaired message, or null if it cannot be repaired.</returns>
+        </member>
+        <member name="M:ProjectWheatstone.ReedSolomonAlgorithm.Decode(System.Byte[],System.Byte[])">
+            <summary>
+            Repairs a possibly broken message using the Reed-Solomon algorithm.
+            </summary>
+            <param name="message">The possibly broken message to repair.</param>
+            <param name="ecc">The available error correction codewords.</param>
+            <returns>Returns the repaired message, or null if it cannot be repaired.</returns>
+        </member>
+        <member name="T:ProjectWheatstone.GenericGFPoly">
+            <summary>
+            <p>Represents a polynomial whose coefficients are elements of a GF.
+            Instances of this class are immutable.</p>
+            <p>Much credit is due to William Rucklidge since portions of this code are an indirect
+            port of his C++ Reed-Solomon implementation.</p>
+            </summary>
+            <author>Sean Owen</author>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGFPoly.#ctor(ProjectWheatstone.GenericGF,System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProjectWheatstone.GenericGFPoly"/> class.
+            </summary>
+            <param name="field">the {@link GenericGF} instance representing the field to use
+            to perform computations</param>
+            <param name="coefficients">coefficients as ints representing elements of GF(size), arranged
+            from most significant (highest-power term) coefficient to least significant</param>
+            <exception cref="T:System.ArgumentException">if argument is null or empty,
+            or if leading coefficient is 0 and this is not a
+            constant polynomial (that is, it is not the monomial "0")</exception>
+        </member>
+        <member name="P:ProjectWheatstone.GenericGFPoly.Degree">
+            <summary>
+            degree of this polynomial
+            </summary>
+        </member>
+        <member name="P:ProjectWheatstone.GenericGFPoly.IsZero">
+            <summary>
+            Gets a value indicating whether this <see cref="T:ProjectWheatstone.GenericGFPoly"/> is zero.
+            </summary>
+            <value>true iff this polynomial is the monomial "0"</value>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGFPoly.GetCoefficient(System.Int32)">
+            <summary>
+            coefficient of x^degree term in this polynomial
+            </summary>
+            <param name="degree">The degree.</param>
+            <returns>coefficient of x^degree term in this polynomial</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGFPoly.EvaluateAt(System.Int32)">
+            <summary>
+            evaluation of this polynomial at a given point
+            </summary>
+            <param name="a">A.</param>
+            <returns>evaluation of this polynomial at a given point</returns>
+        </member>
+        <member name="T:ProjectWheatstone.GenericGF">
+            <summary>
+              <p>This class contains utility methods for performing mathematical operations over
+            the Galois Fields. Operations use a given primitive polynomial in calculations.</p>
+              <p>Throughout this package, elements of the GF are represented as an {@code int}
+            for convenience and speed (but at the cost of memory).
+              </p>
+            </summary>
+            <author>Sean Owen</author>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a representation of GF(size) using the given primitive polynomial.
+            </summary>
+            <param name="primitive">irreducible polynomial whose coefficients are represented by
+            *  the bits of an int, where the least-significant bit represents the constant
+            *  coefficient</param>
+            <param name="size">the size of the field</param>
+            <param name="genBase">the factor b in the generator polynomial can be 0- or 1-based
+            *  (g(x) = (x+a^b)(x+a^(b+1))...(x+a^(b+2t-1))).
+            *  In most cases it should be 1, but for QR code it is 0.</param>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.BuildMonomial(System.Int32,System.Int32)">
+            <summary>
+            Builds the monomial.
+            </summary>
+            <param name="degree">The degree.</param>
+            <param name="coefficient">The coefficient.</param>
+            <returns>the monomial representing coefficient * x^degree</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.AddOrSubtract(System.Int32,System.Int32)">
+            <summary>
+            Implements both addition and subtraction -- they are the same in GF(size).
+            </summary>
+            <returns>sum/difference of a and b</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.Exp(System.Int32)">
+            <summary>
+            Exps the specified a.
+            </summary>
+            <returns>2 to the power of a in GF(size)</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.Log(System.Int32)">
+            <summary>
+            Logs the specified a.
+            </summary>
+            <param name="a">A.</param>
+            <returns>base 2 log of a in GF(size)</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.Inverse(System.Int32)">
+            <summary>
+            Inverses the specified a.
+            </summary>
+            <returns>multiplicative inverse of a</returns>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.Multiply(System.Int32,System.Int32)">
+            <summary>
+            Multiplies the specified a with b.
+            </summary>
+            <param name="a">A.</param>
+            <param name="b">The b.</param>
+            <returns>product of a and b in GF(size)</returns>
+        </member>
+        <member name="P:ProjectWheatstone.GenericGF.Size">
+            <summary>
+            Gets the size.
+            </summary>
+        </member>
+        <member name="P:ProjectWheatstone.GenericGF.GeneratorBase">
+            <summary>
+            Gets the generator base.
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.GenericGF.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:ProjectWheatstone.Utilities">
+            <summary>
+            This class regroups many utilities used in input sanitization, tostrings for debug, converting
+            </summary>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.IsPixelListEqual(System.Collections.Generic.List{ProjectWheatstone.Pixel},System.Collections.Generic.List{ProjectWheatstone.Pixel})">
+            <summary>
+            Compares 2 Pixel lists and check if they are equal
+            </summary>
+            <param name="list1">first list</param>
+            <param name="list2">second list</param>
+            <returns>boolean, true if tabs are equal</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.Copymat(ProjectWheatstone.Pixel[0:,0:])">
+            <summary>
+            Deep copy a pixel matrix
+            </summary>
+            <param name="mat">the original pixel matrix</param>
+            <returns>the new copied pixel matrix</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.IsTabSame(System.Int32[],System.Int32[])">
+            <summary>
+            Checks if 2 tabs of int are the same
+            </summary>
+            <param name="tab1">1rst tab to compare</param>
+            <param name="tab2">2nd tab to compare</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ArrayAddInt(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Add an int number to a byte array, by first converting it into a little Endian byte array, at a specific offset
+            </summary>
+            <param name="array">The byte array to add to</param>
+            <param name="number">the int number to be added</param>
+            <param name="offset">the offset at which the number should be place</param>
+            <param name="length">the length of the byte array tha tthe number should be converted to</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ArrayAddBytes(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            Add a array of bytes to another array of bytes, at a specific offset
+            </summary>
+            <param name="array">The byte array to add to</param>
+            <param name="arraytoadd">The byte array to be added</param>
+            <param name="offset">the offset at which the new byte array should be placed in the original array</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ArrayAddPixels(System.Byte[],ProjectWheatstone.Pixel[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Add pixel matrix to a byte array, by converting each pixel into a byte array first
+            </summary>
+            <param name="array">the original array</param>
+            <param name="mat">the pixel matrix to be added to the array</param>
+            <param name="offset">the offeset it should be added to</param>
+            <param name="padding">the padding value of the current picture</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.getArray(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Gives back an array of bytes from the start to end index in the bytes array given
+            </summary>
+            <param name="bytes">the original byte array</param>
+            <param name="start">start index</param>
+            <param name="end">end index</param>
+            <returns>a cropped byte array between start and end</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.GreenWriteLine(System.String)">
+            <summary>
+            Prints the data in dark cyan for a nice looking console
+            </summary>
+            <param name="data">the data to be printed</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.RedWriteLine(System.String)">
+            <summary>
+            Prints the data in red for erros
+            </summary>
+            <param name="data">the data to be printed</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.IntFromEndian(System.Byte[])">
+            <summary>
+            Convert an endian byte sequence to int
+            </summary>
+            <param name="array"> Endian byte sequence to be converted</param>
+            <returns> Int converted from endian </returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.EndianFromInt(System.Int32,System.Int32)">
+            <summary>
+            Convert an int to an endian byte sequence
+            </summary>
+            <param name="number">the int to be converted</param>
+            <param name="arraylength">the desired length of the byte array</param>
+            <returns> Endian converted from int </returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ToBin(System.Int32,System.Int32)">
+            <summary>
+            Recursive function to convert to binary but adds a 0 if needed to complete the 8 digit binary number
+            </summary>
+            <param name="value">the int value to be converted</param>
+            <param name="len">the length of the binary for 0 padding</param>
+            <returns>the binary as a string</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ToDec(System.String)">
+            <summary>
+            Converts a string of binary to a byte
+            </summary>
+            <param name="bin">the binary number as a string</param>
+            <returns>the byte value of the binary</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ToDecTab(System.String)">
+            <summary>
+            convert binary data, after breaking it into 8 bits, into a byte array
+            </summary>
+            <param name="bindata">the binary data to be converted</param>
+            <returns>the equivalent byte tab</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ToBinTab(System.Byte[],System.Int32)">
+            <summary>
+            converts a tab of bytes to tab of binary in form of strings, with the binary being the specified length
+            </summary>
+            <param name="values">the byte tab to be converted into binary</param>
+            <param name="len">the length of each individual binary number for left padding</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ToBinTab(System.String)">
+            <summary>
+            Converts a long string of binary into a 8-bit long array of binary numbers as strings
+            </summary>
+            <param name="bin">the long binary data</param>
+            <returns>the binary tab containing only 8 bits long binary numbers</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ShowBitString(System.String)">
+            <summary>
+            Shows a long string of bits with a space char at each 8 bits, for debug mainly
+            </summary>
+            <param name="bits">the long bit string</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ShowArray(System.String[])">
+            <summary>
+            Show a string tab, debug function
+            </summary>
+            <param name="var">the tab to be shown</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ShowTab(System.Int32[])">
+            <summary>
+            Show a int tab, debug function
+            </summary>
+            <param name="tab">the tab to be shown</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.ShowByteTab(System.Byte[])">
+            <summary>
+            Show a byte tab, debug function
+            </summary>
+            <param name="tab">the tab to be shown</param>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.IntQuery(System.Int32,System.Int32)">
+            <summary>
+            Sanitize user input over a query for an int
+            </summary>
+            <param name="min">the minimum of the int queried</param>
+            <param name="max">the maximum of the int queried</param>
+            <returns>the int queried</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.DoubleQuery(System.Double,System.Double)">
+            <summary>
+            Sanitize user input over a query for a double
+            </summary>
+            <param name="min">the minimum of the double queried</param>
+            <param name="max">the maximum of the double queried</param>
+            <returns>the double queried</returns>
+        </member>
+        <member name="M:ProjectWheatstone.Utilities.BoolQuery">
+            <summary>
+            Ask the user for a bool, sanitize his input
+            </summary>
+            <returns>the bool inputed</returns>
+        </member>
+    </members>
+</doc>
