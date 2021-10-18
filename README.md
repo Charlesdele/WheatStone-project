@@ -15,9 +15,9 @@ When running the code for the first time, choose the image you want to work on.
 A few ones are already in an image folder like the parot (coco), the eagle (lac) and the girl (lea).
 
 <p align="left"> 
-  <img src=https://user-images.githubusercontent.com/63778269/137762800-f053eb76-5e1a-433a-90cb-7af69e7f52c9.PNG height=225/>
-  <img src=https://user-images.githubusercontent.com/63778269/137762934-f0d40a5b-f4b1-48e3-baa4-9238d5b7ae43.PNG height=225/>
-  <img src=https://user-images.githubusercontent.com/63778269/137763073-d000fbf0-25e0-48c5-af11-f136f33aab46.PNG height=225/>
+  <img src=https://user-images.githubusercontent.com/63778269/137762800-f053eb76-5e1a-433a-90cb-7af69e7f52c9.PNG height=200/>
+  <img src=https://user-images.githubusercontent.com/63778269/137762934-f0d40a5b-f4b1-48e3-baa4-9238d5b7ae43.PNG height=200/>
+  <img src=https://user-images.githubusercontent.com/63778269/137763073-d000fbf0-25e0-48c5-af11-f136f33aab46.PNG height=200/>
 </p>
 
 If you want to use your images put them in the folder **images_de_base** at the following path : _ProjectWheatstone/bin/Debug/images_de_base_
