@@ -8,7 +8,6 @@ This project aims to recreate the pixel and bitmap librairies of C# from scratch
 The name of the project was inspired from Charles Wheatstone with his invention of the stereogram, which we implemented in the form of autostereogram generation in the project.
 
 <br/>
-<br/>
 
 ## Set up
 
